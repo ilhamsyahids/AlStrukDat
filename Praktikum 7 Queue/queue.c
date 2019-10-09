@@ -1,3 +1,6 @@
+// ILHAM SYAHID S
+// 13518028
+
 #include "boolean.h"
 #include "queue.h"
 #include <stdlib.h>
@@ -92,5 +95,28 @@ void Del(Queue *Q, infotype *X)
     else
     {
         Head(*Q) = (Head(*Q) % MaxEl(*Q)) + 1;
+    }
+}
+
+void PrintQ(Queue Q)
+{
+    if (IsEmpty(Q))
+    {
+        printf("Empty queue");
+    }
+    else
+    {
+        int i = Head(Q);
+
+        printf("Head : %d\n", Head(Q));
+        printf("Tail : %d\n", Tail(Q));
+        printf("Jumlah el : %d\n", NBElmt(Q));
+        printf("element : ");
+
+        while (i != (Tail(Q) + 1))
+        {
+            printf("[%d] > %d ", i, Q.T[i]);
+            i = (i % MaxEl(Q)) + 1;
+        }
     }
 }
