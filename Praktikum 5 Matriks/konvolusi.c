@@ -1,3 +1,6 @@
+// ILHAM SYAHID S
+// 13518028
+
 #include <stdio.h>
 #include <math.h>
 #include "matriks.h"

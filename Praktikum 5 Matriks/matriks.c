@@ -1,3 +1,6 @@
+// ILHAM SYAHID S
+// 13518028
+
 #include <stdio.h>
 #include "matriks.h"
 
@@ -410,32 +413,35 @@ void Transpose(MATRIKS *M)
 
 /* Operasi berbasis baris dan per kolom */
 
-float RataBrs (MATRIKS M, indeks i)
+float RataBrs(MATRIKS M, indeks i)
 /* Menghasilkan rata-rata dari elemen pada baris ke-i */
 /* Prekondisi: i adalah indeks baris efektif dari M */
 {
-    float count=0, nilai=0;
-    for (indeks j = GetFirstIdxKol(M); j<=GetLastIdxKol(M);j++) {
+    float count = 0, nilai = 0;
+    for (indeks j = GetFirstIdxKol(M); j <= GetLastIdxKol(M); j++)
+    {
         nilai += Elmt(M, i, j);
         count++;
     }
 
-    return (nilai/count);
+    return (nilai / count);
 }
 
-float RataKol (MATRIKS M, indeks j){
-/* Menghasilkan rata-rata dari elemen pada kolom ke-j */
-/* Prekondisi: j adalah indeks kolom efektif dari M */
-    float count=0, nilai=0;
-    for (indeks i = GetFirstIdxBrs(M); i<=GetLastIdxBrs(M);i++) {
+float RataKol(MATRIKS M, indeks j)
+{
+    /* Menghasilkan rata-rata dari elemen pada kolom ke-j */
+    /* Prekondisi: j adalah indeks kolom efektif dari M */
+    float count = 0, nilai = 0;
+    for (indeks i = GetFirstIdxBrs(M); i <= GetLastIdxBrs(M); i++)
+    {
         nilai += Elmt(M, i, j);
         count++;
     }
 
-    return (nilai/count);   
+    return (nilai / count);
 }
 
-void MaxMinBrs (MATRIKS M, indeks i, ElType * max, ElType * min)
+void MaxMinBrs(MATRIKS M, indeks i, ElType *max, ElType *min)
 /* I.S. i adalah indeks baris efektif dari M, M terdefinisi */
 /* F.S. max berisi elemen maksimum pada baris i dari M
            min berisi elemen minimum pada baris i dari M */
@@ -444,18 +450,21 @@ void MaxMinBrs (MATRIKS M, indeks i, ElType * max, ElType * min)
     ElType Min = Elmt(M, i, GetFirstIdxKol(M));
     for (int j = GetFirstIdxKol(M); j <= GetLastIdxKol(M); j++)
     {
-        if (Elmt(M, i, j) >= Max) {
+        if (Elmt(M, i, j) >= Max)
+        {
             Max = Elmt(M, i, j);
-        } else if (Elmt(M, i, j) <= Min) {
+        }
+        else if (Elmt(M, i, j) <= Min)
+        {
             Min = Elmt(M, i, j);
-        } 
+        }
     }
 
     (*max) = Max;
     (*min) = Min;
 }
 
-void MaxMinKol (MATRIKS M, indeks j, ElType * max, ElType * min)
+void MaxMinKol(MATRIKS M, indeks j, ElType *max, ElType *min)
 /* I.S. j adalah indeks kolom efektif dari M, M terdefinisi */
 /* F.S. max berisi elemen maksimum pada kolom j dari M
            min berisi elemen minimum pada kolom j dari M */
@@ -464,41 +473,46 @@ void MaxMinKol (MATRIKS M, indeks j, ElType * max, ElType * min)
     ElType Min = Elmt(M, GetFirstIdxBrs(M), j);
     for (int i = GetFirstIdxBrs(M); i <= GetLastIdxBrs(M); i++)
     {
-        if (Elmt(M, i, j) >= Max) {
+        if (Elmt(M, i, j) >= Max)
+        {
             Max = Elmt(M, i, j);
-        } else if (Elmt(M, i, j) <= Min) {
+        }
+        else if (Elmt(M, i, j) <= Min)
+        {
             Min = Elmt(M, i, j);
-        } 
+        }
     }
 
     (*max) = Max;
     (*min) = Min;
 }
 
-int CountXBrs (MATRIKS M, indeks i, ElType X)
+int CountXBrs(MATRIKS M, indeks i, ElType X)
 /* Menghasilkan banyaknya kemunculan X pada baris i dari M */
 {
-    int count=0;
+    int count = 0;
     for (int j = GetFirstIdxKol(M); j <= GetLastIdxKol(M); j++)
     {
-        if (Elmt(M, i, j) == X) {
+        if (Elmt(M, i, j) == X)
+        {
             count++;
-        } 
+        }
     }
-    
+
     return count;
 }
 
-int CountXKol (MATRIKS M, indeks j, ElType X)
+int CountXKol(MATRIKS M, indeks j, ElType X)
 /* Menghasilkan banyaknya kemunculan X pada kolom j dari M */
 {
-    int count=0;
+    int count = 0;
     for (int i = GetFirstIdxBrs(M); i <= GetLastIdxBrs(M); i++)
     {
-        if (Elmt(M, i, j) == X) {
+        if (Elmt(M, i, j) == X)
+        {
             count++;
-        } 
+        }
     }
-    
+
     return count;
 }
