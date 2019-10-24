@@ -1,3 +1,6 @@
+// ILHAM SYAHID S
+// 13518028
+
 #include "stackt.h"
 #include <stdio.h>
 
